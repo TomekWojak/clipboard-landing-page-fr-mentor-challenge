@@ -1,0 +1,131 @@
+@use "./_components" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+:root {
+	--iosBtn: hsl(171, 66%, 44%);
+	--macBtn: hsl(233, 100%, 69%);
+	--darkGray: hsl(210, 10%, 33%);
+	--lightGray: hsl(201, 11%, 66%);
+}
+body {
+	font-family: "Bai Jamjuree", sans-serif;
+}
+
+.header {
+	position: relative;
+	z-index: 0;
+
+	&__bg {
+		position: absolute;
+		inset-inline: 0;
+		width: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
+	&__bg-desktop-visible {
+		display: none;
+	}
+	&__content {
+		padding: 12em 2em 8em;
+		text-align: center;
+	}
+	&__img {
+		width: 100px;
+		height: auto;
+	}
+	&__title {
+		margin: 1.6em 0 0.6em;
+		color: var(--darkGray);
+		font-size: clamp(2.5rem, 6.5vw, 5rem);
+	}
+	&__text {
+		font-size: clamp(1.3rem, 3vw, 2rem);
+		line-height: 160%;
+		color: var(--lightGray);
+	}
+	&__buttons {
+		margin-block-start: 3.5em;
+	}
+	&__btn {
+		display: block;
+		width: 100%;
+		padding: 1.1em 2em;
+		border-radius: 30px;
+		border: none;
+		font-weight: 500;
+		color: #fff;
+		letter-spacing: 1px;
+		cursor: pointer;
+
+		&--green {
+			background-color: var(--iosBtn);
+			box-shadow: 0 4px 0 hsl(171, 80%, 34%);
+		}
+		&--purple {
+			margin-block-start: 1.5em;
+			background-color: var(--macBtn);
+			box-shadow: 0 4px 0 hsl(233, 77%, 57%);
+		}
+	}
+}
+
+@media (576px <= width) {
+	.header {
+		&__content {
+			padding: 12em 4em 8em;
+		}
+		&__btn {
+			font-size: 1.5rem;
+		}
+	}
+}
+@media (768px <= width) {
+	.header {
+		&__img {
+			width: 125px;
+		}
+		&__bg-mobile-visible {
+			display: none;
+		}
+		&__bg-desktop-visible {
+			display: block;
+		}
+		&__buttons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-block-start: 4.5em;
+			gap: 1.5em;
+		}
+		&__btn {
+			width: 30%;
+            max-width: 220px;
+			transition: transform 0.4s, box-shadow 0.4s, opacity .4s;
+
+			&--purple {
+				margin: 0;
+			}
+
+			&:hover {
+				transform: translateY(3px);
+				box-shadow: none;
+                opacity: .9;
+			}
+		}
+	}
+}
+
+@media(992px <= width) {
+    .header {
+        &__btn {
+            padding: 1.3em 2em;
+        }
+    }
+}

@@ -1,1 +1,128 @@
-/*# sourceMappingURL=style.css.map */
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --iosBtn: hsl(171, 66%, 44%);
+  --macBtn: hsl(233, 100%, 69%);
+  --darkGray: hsl(210, 10%, 33%);
+  --lightGray: hsl(201, 11%, 66%);
+}
+
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+}
+
+.header {
+  position: relative;
+  z-index: 0;
+}
+.header__bg {
+  position: absolute;
+  inset-inline: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.header__bg-desktop-visible {
+  display: none;
+}
+.header__content {
+  padding: 12em 2em 8em;
+  text-align: center;
+}
+.header__img {
+  width: 100px;
+  height: auto;
+}
+.header__title {
+  margin: 1.6em 0 0.6em;
+  color: var(--darkGray);
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+}
+.header__text {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 160%;
+  color: var(--lightGray);
+}
+.header__buttons {
+  margin-block-start: 3.5em;
+}
+.header__btn {
+  display: block;
+  width: 100%;
+  padding: 1.1em 2em;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.header__btn--green {
+  background-color: var(--iosBtn);
+  box-shadow: 0 4px 0 hsl(171, 80%, 34%);
+}
+.header__btn--purple {
+  margin-block-start: 1.5em;
+  background-color: var(--macBtn);
+  box-shadow: 0 4px 0 hsl(233, 77%, 57%);
+}
+
+@media (576px <= width) {
+  .header__content {
+    padding: 12em 4em 8em;
+  }
+  .header__btn {
+    font-size: 1.5rem;
+  }
+}
+@media (768px <= width) {
+  .header__img {
+    width: 125px;
+  }
+  .header__bg-mobile-visible {
+    display: none;
+  }
+  .header__bg-desktop-visible {
+    display: block;
+  }
+  .header__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 4.5em;
+    gap: 1.5em;
+  }
+  .header__btn {
+    width: 30%;
+    max-width: 220px;
+    transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s;
+  }
+  .header__btn--purple {
+    margin: 0;
+  }
+  .header__btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+    opacity: 0.9;
+  }
+}
+@media (992px <= width) {
+  .header__btn {
+    padding: 1.3em 2em;
+  }
+}/*# sourceMappingURL=style.css.map */
