@@ -48,24 +48,13 @@ body {
 	&__text {
 		max-width: 650px;
 		margin: 0 auto;
-		font-size: clamp(1.3rem, 3vw, 2rem);
-		line-height: 160%;
-		color: var(--lightGray);
+		@include textStyles;
 	}
 	&__buttons {
 		margin-block-start: 3.5em;
 	}
 	&__btn {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding: 1.1em 2em;
-		border-radius: 30px;
-		border: none;
-		font-weight: 500;
-		color: #fff;
-		letter-spacing: 1px;
-		cursor: pointer;
+		@include buttonStyles;
 
 		&--green {
 			background-color: var(--iosBtn);
@@ -102,16 +91,12 @@ body {
 		text-align: center;
 	}
 	&__title {
-		margin-block-end: 1em;
-		font-size: clamp(2.3rem, 5.5vw, 4.4rem);
-		color: var(--darkGray);
+		@include titleStyles;
 	}
 	&__text {
 		max-width: 850px;
 		margin: 0 auto;
-		font-size: clamp(1.3rem, 3vw, 2rem);
-		color: var(--lightGray);
-		line-height: 160%;
+		@include textStyles;
 	}
 	&__img {
 		margin: 5em 0;
@@ -119,38 +104,150 @@ body {
 		height: auto;
 	}
 	&__subtitle {
-		font-size: clamp(1.85rem, 4vw, 4rem);
-		color: var(--darkGray);
+		@include subtitleStyles;
 	}
 	&__info {
 		margin: 0.7em 0 2em;
-		font-size: clamp(1.3rem, 3vw, 1.8rem);
-		color: var(--lightGray);
+		@include textStyles(1.8rem);
 	}
 }
 
 .clipboard {
 	&__content {
-		padding: 8em 2em;
+		padding: 8em 2em 4em;
 		text-align: center;
 	}
 	&__title {
-		margin-block-end: 1em;
-		font-size: clamp(2.3rem, 5.5vw, 4.4rem);
-		color: var(--darkGray);
+		@include titleStyles;
 	}
 	&__text {
 		max-width: 650px;
 		margin: 0 auto;
-		color: var(--lightGray);
-		font-size: clamp(1.3rem, 3vw, 2rem);
-		line-height: 160%;
+		@include textStyles;
 	}
 	&__img {
 		max-width: 1000px;
-		margin: 5em 0;
+		margin: 5em 0 0;
 		width: 100%;
 		height: auto;
+	}
+}
+
+.workflow {
+	&__content {
+		padding: 2em;
+		text-align: center;
+	}
+	&__title {
+		@include titleStyles;
+	}
+	&__text {
+		@include textStyles;
+	}
+	&__container-top {
+		margin: 7em 0 10em;
+	}
+	&__icon {
+		margin-block-end: 2.5em;
+		width: 35px;
+		height: auto;
+	}
+	&__subtitle {
+		@include subtitleStyles;
+	}
+	&__info {
+		margin: 1em 0 2em;
+		@include textStyles;
+	}
+	&__box {
+		margin-block-end: 6em;
+	}
+	&__container-bottom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 5em;
+	}
+	&__logo {
+		display: block;
+		width: 120px;
+		height: auto;
+	}
+}
+
+.bottom-section {
+	&__content {
+		margin: 8em auto;
+		text-align: center;
+		padding: 2em;
+	}
+	&__title {
+		@include titleStyles;
+	}
+	&__text {
+		@include textStyles;
+	}
+	&__buttons {
+		margin-block-start: 3.5em;
+	}
+	&__btn {
+		@include buttonStyles;
+
+		&--green {
+			background-color: var(--iosBtn);
+			box-shadow: 0 4px 0 hsl(171, 80%, 34%);
+		}
+		&--purple {
+			margin-block-start: 1.5em;
+			background-color: var(--macBtn);
+			box-shadow: 0 4px 0 hsl(233, 77%, 57%);
+		}
+		&--green::before {
+			box-shadow: 1px 5px 10px hsla(171, 66%, 44%, 0.466);
+		}
+		&--purple::before {
+			box-shadow: 1px 5px 10px hsla(233, 66%, 44%, 0.466);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+			z-index: -1;
+		}
+	}
+}
+
+.footer {
+	background-color: #f5f6f8;
+
+	&__content {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 4em 2em;
+	}
+	&__logo {
+		display: block;
+		margin-block-end: 3em;
+		width: 50px;
+		height: auto;
+	}
+	&__link {
+		padding: 0.8em 0;
+		display: block;
+		text-decoration: none;
+		color: var(--darkGray);
+		font-weight: 500;
+		font-size: clamp(1.5rem, 3vw, 1.7rem);
+	}
+	&__social {
+		display: flex;
+		gap: 3em;
+		margin-block-start: 3em;
 	}
 }
 
@@ -170,6 +267,68 @@ body {
 		&__title,
 		&__text {
 			padding: 0 2em;
+		}
+	}
+	.workflow {
+		&__content {
+			padding: 4em;
+		}
+		&__container-top {
+			margin: 9em 0 12em;
+		}
+		&__logo {
+			width: 135px;
+		}
+	}
+	.bottom-section {
+		&__content {
+			padding: 4em;
+		}
+		&__btn {
+			font-size: 1.5rem;
+		}
+	}
+	.footer {
+		&__content {
+			padding: 6em 4em;
+		}
+		&__logo {
+			width: 60px;
+		}
+	}
+}
+@media (700px <= width) {
+	.workflow {
+		&__container-bottom {
+			flex-flow: row wrap;
+			justify-content: center;
+			gap: 8em;
+		}
+	}
+	.footer {
+		&__content {
+			flex-direction: row;
+			text-align: left;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+		&__box-container {
+			margin-inline-start: 3em;
+			display: flex;
+			justify-content: space-evenly;
+			width: 60%;
+			gap: 2em;
+		}
+		&__link {
+			padding: 0;
+
+			&:nth-child(2) {
+				padding-block-start: 0.8em;
+			}
+		}
+		&__social {
+			margin: 0;
+			margin-inline-start: auto;
 		}
 	}
 }
@@ -207,6 +366,44 @@ body {
 			}
 		}
 	}
+	.bottom-section {
+		&__buttons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1.5em;
+			margin-block-start: 4.5em;
+		}
+		&__btn {
+			width: 30%;
+			max-width: 220px;
+			transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s;
+
+			&--purple {
+				margin: 0;
+			}
+			&:hover {
+				transform: translateY(3px);
+				box-shadow: none;
+				opacity: 0.9;
+			}
+		}
+	}
+	.footer {
+		&__link {
+			transition: color 0.3s;
+
+			&:hover {
+				color: var(--iosBtn);
+			}
+		}
+		&__social-link svg path {
+			transition: fill 0.3s;
+		}
+		&__social-link:hover svg path {
+			fill: var(--iosBtn);
+		}
+	}
 }
 @media (800px <= width) {
 	.snippets {
@@ -238,6 +435,37 @@ body {
 			width: 40%;
 		}
 	}
+	.workflow {
+		&__container-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+		&__box {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 30%;
+		}
+		&__box:last-child .workflow__subtitle {
+			margin-block-start: 0.2em;
+		}
+		&__box-body {
+			height: 230px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			height: 100%;
+		}
+		&__subtitle {
+			font-size: 3rem;
+		}
+		&__info {
+			font-size: 1.6rem;
+		}
+	}
 }
 
 @media (992px <= width) {
@@ -256,12 +484,14 @@ body {
 			margin: 8em 0;
 		}
 	}
+	.workflow {
+		&__container-bottom {
+			justify-content: space-between;
+		}
+	}
+	.footer {
+		&__social {
+			align-self: center;
+		}
+	}
 }
-
-// @media (1100px <= width) {
-// 	.snippets {
-// 		&__content {
-// 			padding: 0 4em;
-// 		}
-// 	}
-// }

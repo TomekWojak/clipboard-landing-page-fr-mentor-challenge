@@ -3,3 +3,29 @@
 	max-width: 1200px;
 	margin: 0 auto;
 }
+@mixin textStyles($max: 2rem) {
+	color: var(--lightGray);
+	font-size: clamp(1.3rem, 3vw, $max);
+	line-height: 160%;
+}
+@mixin titleStyles {
+	margin-block-end: 1em;
+	font-size: clamp(2.3rem, 5.5vw, 4.4rem);
+	color: var(--darkGray);
+}
+@mixin subtitleStyles {
+	font-size: clamp(1.85rem, 4vw, 4rem);
+	color: var(--darkGray);
+}
+@mixin buttonStyles {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 1.1em 2em;
+	border-radius: 30px;
+	border: none;
+	font-weight: 500;
+	color: #fff;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
